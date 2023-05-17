@@ -1,171 +1,165 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-:root{
-    --blue: #1976d2;
-    --white: #ffffff;
-    --black: black;
-}
-
-.navbar-container{
-    width:100%;
-    height:100%;
+:root {
+  --blue: #1976d2;
+  --white: #ffffff;
+  --black: black;
 }
 
-.navbar{
-    width:100%;
-    height:100%;
-    background-color: var(--blue);
-    padding:20px;
-    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%),
-                0px 4px 5px 0px rgb(0 0 0 / 14%), 
-                0px 1px 10px 0px rgb(0 0 0 / 12%);
+.navbar {
+  width: 100%;
+  height: 100%;
+  background-color: var(--blue);
+  padding: 20px;
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%),
+    0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
 }
 
-.navbar-content{
-    font-size:1.2rem;
-    text-transform: capitalize;
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-    align-items: center;
+.navbar-content {
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
 }
 
-.nav-logo{
-    color: var(--white);
-    font-size:1.2rem;
-    flex-grow: 1;
+.nav-logo {
+  color: var(--white);
+  font-size: 1.2rem;
+  flex-grow: 1;
 }
 
-.navbar-content a{
-    text-decoration: none;
-    /* ahiya apde individual margin apyu hatu but na apvu hot directly apde column gap che parent ne as gap:15px */
-    /* 2 ways che k 2 ni vache space rakhiye ek margin and biju gap juare flexbox use kariye tyare */
-    /* margin:auto 10px;  */
-    color: var(--white);
+.navbar-content a {
+  text-decoration: none;
+  /* ahiya apde individual margin apyu hatu but na apvu hot directly apde column gap che parent ne as gap:15px */
+  /* 2 ways che k 2 ni vache space rakhiye ek margin and biju gap juare flexbox use kariye tyare */
+  /* margin:auto 10px;  */
+  color: var(--white);
+}
+.navbar-content a:hover {
+  color: black;
+}
+.content-container {
+  margin: 20px 0px 0px 10px;
+  color: var(--black);
+  font-size: 1rem;
+  line-height: 1.5;
+  display: block;
+}
+.menu-icon {
+  display: none;
+}
+.drawer-container {
+  display: none;
+}
+.drawer-container.hide {
+  display: none;
+}
+.drawer-content.hide {
+  display: none;
+}
+.main-container {
+  display: flex;
+  flex-direction: row;
+  padding-top: 30px;
+}
+.image-container img {
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
 }
 
-.content-container{
-    margin:20px 0px 0px 10px;
-    color: var(--black);
-    font-size: 1rem;
-    line-height: 1.5;
-   
-}
-.menu-icon{
-    display: none;
-}
-.drawer-container{
-    display: none;
-}
-.drawer-container.hide{
-    display:none;
-}
-.drawer-content.hide{
-    display:none;
-}
-.main-container{
-    display:flex;
-    flex-direction: row;;
-}
-.image-container img{
-    height: auto;
-    max-width:100%;
-    object-fit: cover;
-}
-.content-container{
-    display:block;
-}
 /* make responsive  */
 /* If the screen size is 600px or less, set the below style*/
 /* ahiya 0-600px sudhi ni screen size hase tyare j aa dispaly karse  */
 @media screen and (max-width: 600px) {
-    .main-container{
-        /* flex-flow:row; */
-        display:block;
-    }
-    .image-container img{
-        width:60%;
-        height:50%;
-        margin-top:10px;;
-    }
-    .nav-logo{
-        display: none;
-    }
-    .navbar-content a{
-        display: none;
-    }
-    .menu-icon{
-        display: block;
-        color: var(--white);
-        border: none;
-        font-size: 20px;
-        cursor: pointer;
-        border-radius: 50%;
-        width:40px;
-        height: 40px;
-        background-color: transparent;
-    }
-    .menu-icon:hover{
-    background-color: skyblue ;   
-    }
-    
-    .drawer-container{
-        width:100%;
-        height:100%;
-        position: absolute;
-        top:0;
-        left:0;
-        right:0;
-        bottom:0;
-        display: unset;
-    }
-    .drawer-backdrop{
-        width:100%;
-        height:100%;
-        position: absolute;
-        background-color: rgba(0, 0, 0, 0.5);
-        top:0;
-        left:0;
-        right:0;
-        bottom:0;
-    }
-    .drawer-content{
-        width:250px;
-        color:var(--black);
-        background-color: black;
-        min-height:100%;
-        position:fixed;
-        z-index: 1;
-        transform: translateX(-300px);
-        transition: transform 0.5s ease-in-out;   
-    }
-    .drawer-content.show{
-        transform: none;
-    }
-    .logo-text{
-        color:var(--white);
-        margin: 10px 10px;
-        display: block;
-        font-size:1.2rem;
-        text-align:center;
-    }
-    
-    .drawer-content a{
-        display: block;
-        padding: 15px 15px;
-        line-height: 2rem;
-        color:var(--white);
-        text-decoration:none;
-        font-size:1.2rem;
-        text-align:center;
-        transition: background-color .5s ease-in-out , color .5s ease-in-out;
-    }
-    
-    a:hover{
-        background-color: grey;
-    }
-    
+  .main-container {
+    /* flex-flow:row; */
+    display: block;
+  }
+  .image-container img {
+    width: 60%;
+    height: 50%;
+    margin-top: 10px;
+  }
+  .nav-logo {
+    display: none;
+  }
+  .navbar-content a {
+    display: none;
+  }
+  .menu-icon {
+    display: block;
+    color: var(--white);
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+  }
+  .menu-icon:hover {
+    background-color: skyblue;
+  }
+
+  .drawer-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: unset;
+  }
+  .drawer-backdrop {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .drawer-content {
+    width: 250px;
+    color: var(--black);
+    background-color: black;
+    min-height: 100%;
+    position: fixed;
+    z-index: 1;
+    transform: translateX(-300px);
+    transition: transform 0.5s ease-in-out;
+  }
+  .drawer-content.show {
+    transform: none;
+  }
+  .logo-text {
+    color: var(--white);
+    margin: 10px 10px;
+    display: block;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .drawer-content a {
+    display: block;
+    padding: 15px 15px;
+    line-height: 2rem;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-align: center;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  }
+
+  a:hover {
+    background-color: grey;
+  }
 }
